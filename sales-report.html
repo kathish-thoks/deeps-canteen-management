@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEEPS – Digital Efficient Easy Payment System | Sales Report</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-utensils"></i> DEEPS – Digital Efficient Easy Payment System</h1>
+            <nav>
+                <a href="index.html"><i class="fas fa-cash-register"></i> Billing</a>
+                <a href="menu-manager.html"><i class="fas fa-bars"></i> Manage Menu</a>
+                <a href="sales-report.html" class="active"><i class="fas fa-chart-line"></i> Sales Report</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="report-header">
+                <h2>Monthly Sales Report</h2>
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <label for="monthSelect">Month:</label>
+                        <select id="monthSelect">
+                            <option value="0">January</option>
+                            <option value="1">February</option>
+                            <option value="2">March</option>
+                            <option value="3">April</option>
+                            <option value="4">May</option>
+                            <option value="5">June</option>
+                            <option value="6">July</option>
+                            <option value="7">August</option>
+                            <option value="8">September</option>
+                            <option value="9">October</option>
+                            <option value="10">November</option>
+                            <option value="11">December</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="yearSelect">Year:</label>
+                        <select id="yearSelect"></select>
+                    </div>
+                    <button class="btn btn-primary" id="applyFilterBtn">
+                        <i class="fas fa-filter"></i> Apply Filter
+                    </button>
+                </div>
+                <div class="export-controls">
+                    <button class="btn btn-secondary" id="exportPdfBtn" onclick="exportToPDF()">
+                        <i class="fas fa-file-pdf"></i> Export PDF
+                    </button>
+                    <button class="btn btn-secondary" id="exportExcelBtn" onclick="exportToExcel()">
+                        <i class="fas fa-file-excel"></i> Export Excel
+                    </button>
+                </div>
+            </div>
+
+            <div class="report-stats">
+                <div class="stat-card">
+                    <h3>Total Revenue</h3>
+                    <p class="stat-value" id="totalRevenue">₹0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Transactions</h3>
+                    <p class="stat-value" id="totalTransactions">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Average Order</h3>
+                    <p class="stat-value" id="averageOrder">₹0</p>
+                </div>
+            </div>
+
+            <div class="charts-section">
+                <div class="chart-container">
+                    <h3>Daily Sales</h3>
+                    <canvas id="dailySalesChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Category-wise Sales</h3>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </div>
+
+            <div class="transactions-section">
+                <h3>Transaction Details</h3>
+                <div class="transactions-table-container">
+                    <table class="transactions-table" id="transactionsTable">
+                        <thead>
+                            <tr>
+                                <th>Date & Time</th>
+                                <th>Items</th>
+                                <th>Quantity</th>
+                                <th>Total (₹)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionsBody">
+                            <!-- Transactions will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/sales-report.js"></script>
+    
+    <footer class="site-footer">
+        <p>© 2025 DEEPS – Digital Efficient Easy Payment System | Smart Billing for Smart Students</p>
+    </footer>
+</body>
+</html>
+
